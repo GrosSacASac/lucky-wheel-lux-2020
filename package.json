@@ -1,0 +1,37 @@
+{
+  "name": "name",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "lint-fix": "eslint --ignore-path .gitignore --fix source",
+    "lint": "eslint --ignore-path .gitignore source",
+    "serve": "serve -p 8080"
+  },
+  "dependencies": {
+    "@eroc/core": "3.x",
+    "dom99": "22.x"
+  },
+  "devDependencies": {
+    "eslint": "7.x",
+    "eslint-config-red": "1.x",
+    "serve": "11.x"
+  },
+  "eslintConfig": {
+    "extends": [
+      "red"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {}
+    },
+    "env": {
+      "es2020": true,
+      "browser": true,
+      "node": true
+    },
+    "rules": {}
+  },
+  "private": true
+}
