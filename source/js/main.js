@@ -4,6 +4,7 @@ import * as d from "./dependencies.js";
 
 import * as textualGameGuide from "./textualGameGuide.js";
 import * as playerActions from "./playerActions.js";
+import * as scrollActions from "./scrollActions.js";
 import * as game from "./game.js";
 
 
@@ -15,13 +16,15 @@ useDefaultLogging(core);
     await core.start(textualGameGuide);
     await core.start(playerActions);
     await core.start(game);
-
     d.start({
         initialFeed: {
             title: `Hello World`,
             superParagraph: `Super Paragraph text`,
         },
     });
+    
+    await core.start(scrollActions);
+
 
 
     // setTimeout(function () {
