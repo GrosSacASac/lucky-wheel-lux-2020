@@ -22,7 +22,7 @@ const start = function (eventEmitter) {
             }
         })
     }, {
-        threshold: 0
+        threshold: [0,1]
     });
 
     [d.elements[`begin`], d.elements[`end`]].forEach((element) => {
@@ -33,19 +33,27 @@ const start = function (eventEmitter) {
         observedEntries.forEach(observedEntry => {
             if (observedEntry.intersectionRatio >= 0.8) {
                 observedEntry.target.animate([
-                    { transform: 'scale(1)' },
-                    { transform: 'scale(2)' }   
+                    { backgroundColor: 'grey' },
+                    { backgroundColor: 'white' },
                 ], {
                     duration: 2000,
+                    fill: "both"
                 })
                 console.log("is largely visible")
-            } else {
+            } else if (observedEntry.intersectionRatio <= 0.6){
                 console.log("not so visible")
+                observedEntry.target.animate([
+                    { backgroundColor: 'white' },
+                    { backgroundColor: 'grey' },
+                ], {
+                    duration: 2000,
+                    fill: "both"
+                })
 
             }
         })
     }, {
-        threshold: 0.8
+        threshold: [0.8,0.6]
     });
 
     Array.from(document.getElementsByClassName("object")).forEach((element) => {
