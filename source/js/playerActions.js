@@ -1,19 +1,26 @@
 export { start };
 import * as d from "./dependencies.js";
 import { helpText } from "./settings.js";
-import { win } from "./eventNames.js";
+import { TALK, PRISON } from "./eventNames.js";
 
 
+const getAncestorId = function (node) {
+    return d.firstAncestorValue(node, function (node) {
+        return node.id;
+    });
+};
 
 const start = function (eventEmitter) {
     
-    const talk = function () {
-        d.feed(`conversation`, `I am not a drug dealer ok !`);
+    const talk = function (event) {
+        const id = getAncestorId(event.target);
+        eventEmitter.emit(TALK, id);
     };
 
 
-    const prison = function () {
-        eventEmitter.emit(win);
+    const prison = function (event) {
+        const id = getAncestorId(event.target);
+        eventEmitter.emit(PRISON, id);
     };
 
     Object.assign(d.functions, {

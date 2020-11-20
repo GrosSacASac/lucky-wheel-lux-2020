@@ -1,6 +1,12 @@
 export {
-    win,
+    WIN,
+    LOSE,
+    TALK,
+    PRISON,
  };
 
 
- const win = `win`;
+ const WIN = `WIN`;
+ const LOSE = `LOSE`;
+ const TALK = `TALK`;
+ const PRISON = `PRISON`;
