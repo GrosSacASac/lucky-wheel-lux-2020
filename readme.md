@@ -31,3 +31,27 @@ At some point web developers used crazy inefficient `onscroll` event handlers to
 
 For the intersection observer, to observe anything I have to make a game where the user scroll or zooms.
 
+
+## Unused APIs
+
+https://theluckywheel.techatjasmin.com/#1#faq
+
+ * Canvas API
+ * Clipboard API
+ * DeviceOrientationEvent
+ * File System API
+ * Image Capture API
+ * IndexedDB
+ * Navigator.share()
+ * Page Visibility API
+ * Performance API 
+ * ReadableStream
+ * Resize Observer API
+ * Service Workers API
+ * Web Audio API
+ * Web Speech API
+ * Web Storage API
+ * Web Workers API
+ * WebRTC
+ * WebSockets API
+
