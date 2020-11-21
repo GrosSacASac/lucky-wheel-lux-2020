@@ -1,7 +1,7 @@
 export { start };
 import * as d from "./dependencies.js";
-import { helpText } from "./settings.js";
-import { TALK, PRISON } from "./eventNames.js";
+import { approach } from "./settings/animations.js";
+import { MOVE_VIRTUALLY } from "./eventNames.js";
 
 
 const start = function (eventEmitter) {
@@ -32,22 +32,19 @@ const start = function (eventEmitter) {
     const intersectionObserver2 = new IntersectionObserver((observedEntries) => {
         observedEntries.forEach(observedEntry => {
             if (observedEntry.intersectionRatio >= 0.8) {
-                observedEntry.target.animate([
-                    { backgroundColor: 'grey' },
-                    { backgroundColor: 'white' },
-                ], {
-                    duration: 2000,
-                    fill: "both"
-                })
+                observedEntry.target.animate(...approach);
+                // .finished.then(function () {
+                //     observedEntry.target.style.transform = 'rotate3d(0,1,0, 45deg)';
+                // })
                 console.log("is largely visible")
+                eventEmitter.emit(MOVE_VIRTUALLY, {
+                    element: observedEntry.target,
+                })
             } else if (observedEntry.intersectionRatio <= 0.7){
                 console.log("not so visible")
-                observedEntry.target.animate([
-                    { backgroundColor: 'white' },
-                    { backgroundColor: 'grey' },
-                ], {
-                    duration: 2000,
-                    fill: "both"
+                observedEntry.target.animate(approach[0], {
+                    ...approach[1],
+                    direction: "reverse"
                 })
 
             }

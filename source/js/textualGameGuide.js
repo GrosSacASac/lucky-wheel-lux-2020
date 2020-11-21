@@ -1,6 +1,5 @@
 export { start };
 import * as d from "./dependencies.js";
-import { helpText } from "./settings.js";
 import { WIN, LOSE, DEBUG, MOVE } from "./eventNames.js";
 
 

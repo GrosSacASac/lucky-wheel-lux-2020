@@ -1,35 +1,33 @@
 export { start };
-import * as d from "./dependencies.js";
-import { helpText } from "./settings.js";
 import { MOVE, DEBUG } from "./eventNames.js";
+import { minDistance, enableHighAccuracy, maximumAge } from "./settings/geolocation.js";
 import {getDistance} from "../../node_modules/globus-sac/globus.js";
 
 
 
 const start = function (eventEmitter) {
-    let lastPosition = undefined
+    let lastPosition = undefined;
+    let distanceMoved = 0;
     // navigator.geolocation.getCurrentPosition();
     navigator.geolocation.watchPosition(function (position) {
         const {latitude, longitude, accuracy} = position.coords;
         
-        eventEmitter.emit(DEBUG, {
-            latitude, longitude
-        })
-
         if (lastPosition !== undefined) {
             const [previousLatitude, previousLongitude] = lastPosition;
-            const distance = getDistance(latitude, longitude, previousLatitude, previousLongitude);
-            eventEmitter.emit(MOVE, {
-                distance,
-                accuracy
-            })
-
+            distanceMoved += getDistance(latitude, longitude, previousLatitude, previousLongitude);;
+            if (distanceMoved >= minDistance) {
+                eventEmitter.emit(MOVE, {
+                    distance: distanceMoved,
+                    accuracy,
+                });
+                distanceMoved = 0;
+            }
         }
         lastPosition = [latitude, longitude];
     }, function (error) {
         eventEmitter.emit(DEBUG, error)
     },{
-        enableHighAccuracy: true,
-        maximumAge: 2000,
-    })
+        enableHighAccuracy,
+        maximumAge,
+    });
 };

@@ -4,7 +4,7 @@ https://theluckywheel.techatjasmin.com/
 
 ## Before you open the game
 
- - Make sure to enable geolocalisation on your device settings
+ - Make sure to enable geolocalisation on your device settings before
 
 ## Launch game
 
@@ -67,3 +67,41 @@ https://theluckywheel.techatjasmin.com/#1#faq
  * WebRTC
  * WebSockets API
 
+## How to build the game
+
+For convenience the build ouput is already included in git
+
+
+### Set up
+
+1. [Download NodeJS 12, 14 or 15](https://nodejs.org/en/)
+2. `npm i npm@latest-6 -g`
+3. `npm ci`
+
+
+### build
+
+`npm run bundle`
+
+
+## About the code
+
+ * Core.js is used for the code architecture https://github.com/mauriciosoares/core.js
+ * dom99 is used to handle the view https://dom99.now.sh/
+ * rollup and rollup terser is used to bundle and minify all js into one file https://rollupjs.org/guide/en/ 
+
+Serving source in dev and bundle in prod:
+
+```html
+<script type="module">
+    if (location.hostname === `localhost`) {
+        import("./js/main.js");
+    } else {
+        import("../built/bundle.es.min.js");
+    }
+</script>
+```
+
+## License
+
+Open an issue

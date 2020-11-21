@@ -28,8 +28,10 @@ useDefaultLogging(core);
     await core.start(scrollActions);
 
 
-
-    // setTimeout(function () {
-    //     core.moduleEmit(`win`)
-    // }, 5000);
+    setTimeout(function () {
+        core.moduleEmit(`MOVE`, {
+            distance: 30,
+            accuracy: 5,
+        });
+    }, 15000);
 })();
