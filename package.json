@@ -6,6 +6,7 @@
   "scripts": {
     "lint-fix": "eslint --ignore-path .gitignore --fix source",
     "lint": "eslint --ignore-path .gitignore source",
+    "bundle": "rollup --config ./settings/rollup.config.js",
     "serve": "serve -p 8080"
   },
   "dependencies": {
@@ -16,7 +17,9 @@
   "devDependencies": {
     "eslint": "7.x",
     "eslint-config-red": "1.x",
-    "serve": "11.x"
+    "serve": "11.x",
+    "rollup": "2.x",
+    "rollup-plugin-terser": "7.x"
   },
   "eslintConfig": {
     "extends": [
