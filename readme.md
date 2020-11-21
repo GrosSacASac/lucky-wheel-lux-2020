@@ -1,6 +1,7 @@
 # lucky wheel lux 2020
 
-2-day hackathon
+https://theluckywheel.techatjasmin.com/
+
 
 ## lucky wheel results
 
@@ -22,7 +23,9 @@ I've never used this specific API before, but I am familiar with CSS animations.
 
 We can get the physical location of the user. User approval is required so we need to wait to start the game if the beginning of the game depends on it.
 
-We could use this API in a way that requires the user to phisically move in order to progress in the game
+We could use this API in a way that requires the user to phisically move in order to progress in the game.
+
+Created https://github.com/GrosSacASac/globus-sac to help calculate distance.
 
 
 ## Intersection Observer

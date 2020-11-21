@@ -40,7 +40,7 @@ const start = function (eventEmitter) {
                     fill: "both"
                 })
                 console.log("is largely visible")
-            } else if (observedEntry.intersectionRatio <= 0.6){
+            } else if (observedEntry.intersectionRatio <= 0.7){
                 console.log("not so visible")
                 observedEntry.target.animate([
                     { backgroundColor: 'white' },
@@ -53,7 +53,7 @@ const start = function (eventEmitter) {
             }
         })
     }, {
-        threshold: [0.8,0.6]
+        threshold: [0.8,0.7]
     });
 
     Array.from(document.getElementsByClassName("object")).forEach((element) => {

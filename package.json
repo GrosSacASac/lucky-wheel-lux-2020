@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@eroc/core": "3.x",
-    "dom99": "22.x"
+    "dom99": "22.x",
+    "globus-sac": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "7.x",

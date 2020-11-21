@@ -9,5 +9,6 @@ body {
 }
 
 .object {
+    height: 80vh;
     margin: 4rem;
 }

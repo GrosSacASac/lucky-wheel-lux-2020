@@ -3,6 +3,8 @@ export {
     LOSE,
     TALK,
     PRISON,
+    MOVE,
+    DEBUG,
  };
 
 
@@ -10,3 +12,6 @@ export {
  const LOSE = `LOSE`;
  const TALK = `TALK`;
  const PRISON = `PRISON`;
+ const MOVE = `MOVE`;
+ const DEBUG = `DEBUG`;
+ 
