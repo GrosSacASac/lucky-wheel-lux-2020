@@ -24,6 +24,9 @@ const start = function (eventEmitter) {
                 latitude, longitude
             } = data
             d.feed(`debug`, `DEBUG: latitude ${latitude} longitude ${longitude}`);
+        } else if (data.code) {
+            d.feed(`debug`, `DEBUG: code ${data.code} message ${data.message}`);
+
         } else {
             d.feed(`debug`, `DEBUG: ${data}`);
 
