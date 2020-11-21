@@ -19,10 +19,15 @@ const start = function (eventEmitter) {
 
     });
     eventEmitter.on(DEBUG, function (data) {
-        const {
-            latitude, longitude
-        } = data
-        d.feed(`debug`, `DEBUG: latitude ${latitude} longitude ${longitude}`);
+        if (data.latitude) {
+            const {
+                latitude, longitude
+            } = data
+            d.feed(`debug`, `DEBUG: latitude ${latitude} longitude ${longitude}`);
+        } else {
+            d.feed(`debug`, `DEBUG: ${data}`);
+
+        }
 
     });
 };

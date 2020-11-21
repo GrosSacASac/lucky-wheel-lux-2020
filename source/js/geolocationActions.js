@@ -26,7 +26,9 @@ const start = function (eventEmitter) {
 
         }
         lastPosition = [latitude, longitude];
-    }, console.error,{
+    }, function (error) {
+        eventEmitter.emit(DEBUG, error)
+    },{
         enableHighAccuracy: true,
         maximumAge: 2000,
     })
