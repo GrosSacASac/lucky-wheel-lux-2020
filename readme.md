@@ -1,8 +1,15 @@
 # lucky wheel lux 2020
 
-[Game link https://lwl2020.vercel.app/source/game.html](https://lwl2020.vercel.app/source/game.html)
-
 https://theluckywheel.techatjasmin.com/
+
+## Before you open the game
+
+ - Make sure to enable geolocalisation on your device settings
+
+## Launch game
+
+Game link [https://lwl2020.vercel.app/source/game.html](https://lwl2020.vercel.app/source/game.html)
+
 
 
 ## lucky wheel results
@@ -12,7 +19,7 @@ https://theluckywheel.techatjasmin.com/
  * Intersection Observer
 
 
-## Web Animation
+### Web Animation
 
 This API let us animate DOM elements. So the game should have DOM elements such as texts, images, svgs, rectangles moving, appearing, disapearing.
 
@@ -21,7 +28,7 @@ We can control animation loop, speed, timing functions, as well as pausing and r
 I've never used this specific API before, but I am familiar with CSS animations.
 
 
-## Geolocation API
+### Geolocation API
 
 We can get the physical location of the user. User approval is required so we need to wait to start the game if the beginning of the game depends on it.
 
@@ -30,7 +37,7 @@ We could use this API in a way that requires the user to phisically move in orde
 Created https://github.com/GrosSacASac/globus-sac to help calculate distance.
 
 
-## Intersection Observer
+### Intersection Observer
 
 At some point web developers used crazy inefficient `onscroll` event handlers to lazy load images. Intersection Observer is a general purpose solution to observe specific events on the page. We also have `<img loading="lazy">` nowadays.
 
