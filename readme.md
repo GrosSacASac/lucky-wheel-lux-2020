@@ -1,5 +1,7 @@
 # lucky wheel lux 2020
 
+[Game link https://lwl2020.vercel.app/source/game.html](https://lwl2020.vercel.app/source/game.html)
+
 https://theluckywheel.techatjasmin.com/
 
 
