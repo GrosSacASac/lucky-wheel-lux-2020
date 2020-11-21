@@ -34,7 +34,7 @@ We can get the physical location of the user. User approval is required so we ne
 
 We could use this API in a way that requires the user to phisically move in order to progress in the game.
 
-Created https://github.com/GrosSacASac/globus-sac to help calculate distance.
+Created https://github.com/GrosSacASac/globus-sac to help calculate distance during this hackathon.
 
 
 ### Intersection Observer
