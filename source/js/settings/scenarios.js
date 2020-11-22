@@ -1,9 +1,4 @@
-export { helpText, badGuyId, scenarios };
-
-
-const helpText = ``;
-
-const badGuyId = `10`;
+export { scenarios };
 
 const oranges = {
     tips: [
