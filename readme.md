@@ -10,7 +10,23 @@ https://theluckywheel.techatjasmin.com/
 
 Game link [https://lwl2020.vercel.app/source/game.html](https://lwl2020.vercel.app/source/game.html)
 
+## Gameplay
 
+You can move virtually by scrolling and move phisically (geolocation).
+
+Moving virtually to go from house to house.
+
+Moving phisically to go inside an open the door, and then outside again. You cannot move to another house without closing the door first
+
+Each house contains an information.
+
+The last house asks a question that requires the knowledge acquired previously.
+
+So In a way it is a 2 dimensional game, where you have to walk and think.
+
+If you answered correclty, you win.
+
+Refresh the page to try another chalenge.
 
 ## lucky wheel results
 
