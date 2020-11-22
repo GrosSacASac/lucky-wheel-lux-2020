@@ -6,6 +6,7 @@ import * as textualGameGuide from "./textualGameGuide.js";
 import * as playerActions from "./playerActions.js";
 import * as scrollActions from "./scrollActions.js";
 import * as geolocationActions from "./geolocationActions.js";
+import * as animations from "./animations.js";
 import * as game from "./game.js";
 
 
@@ -18,6 +19,7 @@ useDefaultLogging(core);
     await core.start(playerActions);
     await core.start(geolocationActions);
     await core.start(game);
+    await core.start(animations);
     d.start({
         initialFeed: {
             title: `Hello World`,
@@ -28,10 +30,10 @@ useDefaultLogging(core);
     await core.start(scrollActions);
 
 
-    setTimeout(function () {
+    setInterval(function () {
         core.moduleEmit(`MOVE`, {
             distance: 30,
             accuracy: 5,
         });
-    }, 15000);
+    }, 5000);
 })();

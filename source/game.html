@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>lucky wheel lux 2020</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="./images/icon152.jpg">
+    <link rel="icon" href="./images/00.jpg">
     <link rel="stylesheet" href="./css/index.css">
     <script type="module">
         if (location.hostname === `localhost`) {
@@ -14,13 +14,12 @@
         }
     </script>
 </head>
-
-
 <body>
 
     <!-- <h1 data-variable="title">lucky wheel lux 2020</h1> -->
     <h2 data-element="begin">Begin</h2>
     <p data-variable="helpText"></p>
+    <p data-variable="winLose" class="modal"></p>
     <p data-variable="debug"></p>
     
     <p>
@@ -28,32 +27,27 @@
         <span data-variable="conversation"></span>
     </p>
 
-    <div class="object">
-        <img src="./images/icon152.jpg">
-    </div>
+    <template data-template="d-tip">
+        <div class="object">
+            <img src="./images/6.JPG" data-element="door">
+            <p data-variable="text"></p>
+        </div>
+    </template>
 
-    <div class="object" id="1">
-        <button data-function="talk">Talk</button>
-        <button data-function="prison">Prison</button>
-        <img src="./images/icon152.jpg">
-    </div>
+    <div data-list="tips" data-use="d-tip"></div>
+
+    <!-- <button data-function="talk">Talk</button>
+        <button data-function="prison">Prison</button> -->
 
     
-    <div class="object" id="10">
-        <button data-function="talk">Talk</button>
-        <button data-function="prison">Prison</button>
-        <button data-function="prison">X</button>
-        <img src="./images/icon152.jpg">
-    </div>
-
     <div class="object">
-        <button data-function="prison">Y</button>
-        <img src="./images/icon152.jpg">
-    </div>
-
-    <div class="object">
-        <button data-function="prison">W</button>
-        <img src="./images/icon152.jpg">
+        <img src="./images/6.JPG" data-element="door">
+        <select
+            data-list="proposals"
+            data-use="option"
+            data-function="submit"
+            data-variable="chosenProposal"
+        ></select>
     </div>
 
     <h2 data-element="end">End</h2>

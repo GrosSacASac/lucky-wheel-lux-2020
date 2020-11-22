@@ -1,15 +1,28 @@
 export { start };
 import * as d from "./dependencies.js";
-import { badGuyId } from "./settings/scenarios.js";
+import { badGuyId, a } from "./settings/scenarios.js";
 import { WIN, LOSE, TALK, PRISON, MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE } from "./eventNames.js";
 
 
 
 const start = function (eventEmitter) {
+    d.feed({
+        tips: a.tips.map((tip) => {
+            return {
+                text: tip,
+            };
+        }),
+        proposals: a.proposals.map((proposal, index) => {
+            return {
+                textContent: proposal,
+                value: String(index),
+            }
+        })
+    })
     let currentFocus;
 
     eventEmitter.on(PRISON, function(id) {
-        if (id === badGuyId) {
+        if (id === a.answer) {
             eventEmitter.emit(WIN);
         } else {
             eventEmitter.emit(LOSE);
@@ -31,7 +44,7 @@ const start = function (eventEmitter) {
 
     eventEmitter.on(MOVE, function () {
         if (currentFocus) {
-            eventEmitter.emit(GO_INSIDE, currentFocus)
+            eventEmitter.emit(GO_INSIDE, currentFocus.querySelector("img"))
         }
     });
 

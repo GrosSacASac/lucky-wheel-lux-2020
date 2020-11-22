@@ -22,7 +22,14 @@ const start = function (eventEmitter) {
         eventEmitter.emit(PRISON, id);
     };
 
+    const submit = function (event) {
+        const proposalId = Number(d.get(`chosenProposal`));
+        
+        eventEmitter.emit(PRISON, proposalId);
+    };
+
     Object.assign(d.functions, {
+        submit,
         talk,
         prison,
     });

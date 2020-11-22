@@ -5,12 +5,12 @@ import { WIN, LOSE, DEBUG, MOVE } from "./eventNames.js";
 
 const start = function (eventEmitter) {
     eventEmitter.on(WIN, function (data) {
-        d.feed(`helpText`, `You WIN`);
+        d.feed(`winLose`, `You WIN`);
 
     });
 
     eventEmitter.on(LOSE, function (data) {
-        d.feed(`helpText`, `You LOSE`);
+        d.feed(`winLose`, `You LOSE`);
 
     });
     eventEmitter.on(MOVE, function ({distance, accuracy}) {

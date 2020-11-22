@@ -11,6 +11,7 @@ const start = function (eventEmitter) {
     });
 
     eventEmitter.on(GO_INSIDE, function(x) {
+        console.log(x)
         x.animate(...rotate)
     });
 

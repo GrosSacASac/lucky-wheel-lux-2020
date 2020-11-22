@@ -3,12 +3,41 @@ import components used on this page here
 */
 /* @import '../components/superParagraph/superParagraph.css'; */
 
+html {
+    --background: URL("../images/1.JPG");
+}
 body {
-    background-color: #fad420;
-    background-image: linear-gradient(to left, #e40b1d , #a8c023);
+    background-image: var(--background);
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .object {
     height: 80vh;
     margin: 4rem;
+    position: relative;
+    z-index: 1;
+    width: 20vw; /*todo remove*/
+}
+
+.object img {
+    transform-origin: left;
+    height: 100%;
+    width: auto;
+}
+
+.object > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 3rem;
+    background-color: white;
 }
