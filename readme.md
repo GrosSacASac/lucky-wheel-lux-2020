@@ -26,7 +26,7 @@ So In a way it is a 2 dimensional game, where you have to walk and think.
 
 If you answered correclty, you win.
 
-Refresh the page to try another chalenge.
+Refresh the page to try another. There are currently 2 scenarios oranges and Find The lyer,
 
 ## lucky wheel results
 

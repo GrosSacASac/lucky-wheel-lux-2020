@@ -30,10 +30,10 @@ useDefaultLogging(core);
     await core.start(scrollActions);
 
 
-    setInterval(function () {
-        core.moduleEmit(`MOVE`, {
-            distance: 30,
-            accuracy: 5,
-        });
-    }, 5000);
+    // setInterval(function () {
+    //     core.moduleEmit(`MOVE`, {
+    //         distance: 30,
+    //         accuracy: 5,
+    //     });
+    // }, 5000);
 })();
