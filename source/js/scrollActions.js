@@ -29,13 +29,14 @@ const start = function (eventEmitter) {
     //     intersectionObserver.observe(element);
     // });
 
+    const threshold = [1, 0.95];
     const intersectionObserver2 = new IntersectionObserver((observedEntries) => {
         observedEntries.forEach(observedEntry => {
-            if (observedEntry.intersectionRatio >= 1) {
+            if (observedEntry.intersectionRatio >= threshold[0]) {
                 eventEmitter.emit(MOVE_VIRTUALLY, {
                     element: observedEntry.target, // largely visible
                 })
-            } else if (observedEntry.intersectionRatio <= 0.7) {
+            } else if (observedEntry.intersectionRatio <= threshold[1]) {
                 eventEmitter.emit(MOVE_VIRTUALLY, {
                     element: undefined, // not so visible
                 })
@@ -43,7 +44,7 @@ const start = function (eventEmitter) {
             }
         })
     }, {
-        threshold: [1, 0.7]
+        threshold,
     });
 
     Array.from(document.getElementsByClassName("object")).forEach((element) => {
