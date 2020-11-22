@@ -44,15 +44,13 @@ const start = function (eventEmitter) {
         if (!isInside) { // can only move if not inside the house
             if (element) {
                 currentFocus = element;
-                eventEmitter.emit(CHANGE_PLACE, currentFocus)
+                eventEmitter.emit(CHANGE_PLACE, currentFocus);
+                imageIndex += 1;
+                document.body.style.setProperty("--background", `URL(${backGrounds[imageIndex % backGrounds.length]})`);
             } else {
                 currentFocus = undefined;
             }
         }
-    });
-    eventEmitter.on(MOVE_VIRTUALLY, function () {
-        imageIndex += 1;
-        document.body.style.setProperty("--background", `URL(${backGrounds[imageIndex % backGrounds.length]})`);
     });
 
     eventEmitter.on(MOVE, function () {
