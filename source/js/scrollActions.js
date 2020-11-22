@@ -25,25 +25,25 @@ const start = function (eventEmitter) {
         threshold: [0,1]
     });
 
-    [d.elements[`begin`], d.elements[`end`]].forEach((element) => {
-        intersectionObserver.observe(element);
-    });
+    // [d.elements[`begin`], d.elements[`end`]].forEach((element) => {
+    //     intersectionObserver.observe(element);
+    // });
 
-    const intersectionObserver2 = new IntersectionObserver((observedEntries) => {
-        observedEntries.forEach(observedEntry => {
-            if (observedEntry.intersectionRatio >= 1) {
-                // console.log("is largely visible")
-                eventEmitter.emit(MOVE_VIRTUALLY, {
-                    element: observedEntry.target,
-                })
-            } else if (observedEntry.intersectionRatio <= 0.7){
-                // console.log("not so visible")
+    // const intersectionObserver2 = new IntersectionObserver((observedEntries) => {
+    //     observedEntries.forEach(observedEntry => {
+    //         if (observedEntry.intersectionRatio >= 1) {
+    //             // console.log("is largely visible")
+    //             eventEmitter.emit(MOVE_VIRTUALLY, {
+    //                 element: observedEntry.target,
+    //             })
+    //         } else if (observedEntry.intersectionRatio <= 0.7){
+    //             // console.log("not so visible")
 
-            }
-        })
-    }, {
-        threshold: [1,0.7]
-    });
+    //         }
+    //     })
+    // }, {
+    //     threshold: [1,0.7]
+    // });
 
     Array.from(document.getElementsByClassName("object")).forEach((element) => {
         intersectionObserver2.observe(element);
