@@ -30,6 +30,7 @@ useDefaultLogging(core);
     await core.start(scrollActions);
 
 
+    // testing without moving out of the chair
     // setInterval(function () {
     //     core.moduleEmit(`MOVE`, {
     //         distance: 30,

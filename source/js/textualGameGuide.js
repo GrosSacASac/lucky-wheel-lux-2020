@@ -17,6 +17,7 @@ const start = function (eventEmitter) {
         d.feed(`helpText`, `Moved distance ${distance} m  accuracy${accuracy}`);
 
     });
+    
     eventEmitter.on(DEBUG, function (data) {
         if (data.latitude) {
             const {
