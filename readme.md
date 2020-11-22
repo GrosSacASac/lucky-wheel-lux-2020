@@ -10,6 +10,10 @@ https://theluckywheel.techatjasmin.com/
 
 Game link [https://lwl2020.vercel.app/source/game.html](https://lwl2020.vercel.app/source/game.html)
 
+## video
+
+[video on vimeo](https://vimeo.com/482251085)
+
 ## Gameplay
 
 You can move virtually by scrolling and move phisically (geolocation).
