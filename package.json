@@ -12,7 +12,8 @@
   "dependencies": {
     "@eroc/core": "3.x",
     "dom99": "22.x",
-    "globus-sac": "^1.0.0"
+    "globus-sac": "^1.0.0",
+    "randomsac": "^10.1.0"
   },
   "devDependencies": {
     "eslint": "7.x",

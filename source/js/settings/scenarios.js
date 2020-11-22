@@ -1,29 +1,25 @@
-export { helpText, badGuyId, scenarios, a };
+export { helpText, badGuyId, scenarios };
 
 
-const helpText = `
-Hello There.
-Welcome to dom99 quick start example.
-`;
+const helpText = ``;
 
 const badGuyId = `10`;
 
-const a = {
+const oranges = {
     tips: [
-        `Il n'y a pas de fruits sans sucres`,
-        `Tous les agrumes sont des fruits`,
+        `There isn't a fruit without sugar`,
+        `Every orange is a fruit`,
     ],
-    answer: 3,
+    answer: 2,
     proposals: [
-        `Il n'y pas de plante sucré qui ne soit un fruit`,
-        `Tous les fruits sucrés sont également des agrumes`,
-        `Les agrumes sans sucres ne sont pas des fruits`,
-        `Tous les agrumes sont sucrés`,
-        `Aucune des autres réponses`,
+        `There is no sugared plant that is not a fruit`,
+        `All fruits containing sugar are oranges`,
+        `Every orange contains sugar`,
+        `No other response`,
         
     ],
 };
 
 const scenarios = [
-    a,
+    oranges,
 ];
