@@ -28,15 +28,6 @@ const start = function (eventEmitter) {
     let isInside = false;
     let imageIndex = 0;
 
-    // old game
-    // eventEmitter.on(TALK, function(id) {
-    //     if (id === badGuyId) {
-    //         d.feed(`conversation`, `${id} I am not a drug dealer ok !`);
-    //     } else {
-    //         d.feed(`conversation`, `${id} Arrest him !`);
-    //     }
-    // });
-
     eventEmitter.on(MOVE_VIRTUALLY, function ({element}) {
         if (!isInside) { // can only move if not inside the house
             if (element) {
@@ -52,7 +43,7 @@ const start = function (eventEmitter) {
 
     eventEmitter.on(MOVE, function () {
         if (currentFocus) {// can only open the door if in front of the door
-            const door = currentFocus.querySelector(`img`)
+            const door = currentFocus.querySelector(`img`);
             if (!isInside) {
                 eventEmitter.emit(GO_INSIDE, door);
                 document.body.classList.add(`scroll-lock`);

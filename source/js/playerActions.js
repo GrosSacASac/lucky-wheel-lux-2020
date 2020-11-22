@@ -5,8 +5,6 @@ import { TALK, PRISON } from "./eventNames.js";
 
 
 const start = function (eventEmitter) {
-    
-
     const submit = function (event) {
         const proposalId = Number(d.get(`chosenProposal`));
         
@@ -15,7 +13,5 @@ const start = function (eventEmitter) {
 
     Object.assign(d.functions, {
         submit,
-        talk,
-        prison,
     });
 };
