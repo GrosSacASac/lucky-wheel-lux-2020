@@ -3,16 +3,16 @@ import components used on this page here
 */
 /* @import '../components/superParagraph/superParagraph.css'; */
 
-html {
-    --background: URL("../images/1.JPG");
-}
 
 body {
+    --background: URL("../images/1.JPG");
     background-image: var(--background);
     background-size: auto 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+
+    font-size: 2em;
 }
 
 body.scroll-lock {
@@ -24,7 +24,6 @@ body.scroll-lock {
     margin: 20vh;
     margin-left: 1rem;
     position: relative;
-    width: 20vw; /*todo remove*/
 }
 
 .object > img {
