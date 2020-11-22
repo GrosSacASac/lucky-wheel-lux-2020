@@ -20,7 +20,7 @@ Moving phisically to go inside an open the door, and then outside again. You can
 
 Each house contains an information.
 
-The last house asks a question that requires the knowledge acquired previously.
+The last house asks a question that requires the knowledge acquired previously. If you are not ready, do not hesitate to go back after collecting more information.
 
 So In a way it is a 2 dimensional game, where you have to walk and think.
 
