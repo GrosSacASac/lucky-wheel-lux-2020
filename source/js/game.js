@@ -41,11 +41,13 @@ const start = function (eventEmitter) {
     });
 
     eventEmitter.on(MOVE_VIRTUALLY, function ({element}) {
-        if (element) {
-            currentFocus = element;
-            eventEmitter.emit(CHANGE_PLACE, currentFocus)
-        } else {
-            currentFocus = undefined;
+        if (!isInside) { // can only move if not inside the house
+            if (element) {
+                currentFocus = element;
+                eventEmitter.emit(CHANGE_PLACE, currentFocus)
+            } else {
+                currentFocus = undefined;
+            }
         }
     });
     eventEmitter.on(MOVE_VIRTUALLY, function () {
@@ -54,7 +56,7 @@ const start = function (eventEmitter) {
     });
 
     eventEmitter.on(MOVE, function () {
-        if (currentFocus) {
+        if (currentFocus) {// can only open the door if in front of the door
             if (!isInside) {
                 eventEmitter.emit(GO_INSIDE, currentFocus.querySelector("img"))
                 document.body.classList.add(`scroll-lock`)
