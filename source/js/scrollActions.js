@@ -35,19 +35,19 @@ const start = function (eventEmitter) {
             if (observedEntry.intersectionRatio >= threshold[0]) {
                 eventEmitter.emit(MOVE_VIRTUALLY, {
                     element: observedEntry.target, // largely visible
-                })
+                });
             } else if (observedEntry.intersectionRatio <= threshold[1]) {
                 eventEmitter.emit(MOVE_VIRTUALLY, {
                     element: undefined, // not so visible
-                })
+                });
 
             }
-        })
+        });
     }, {
         threshold,
     });
 
-    Array.from(document.getElementsByClassName("object")).forEach((element) => {
+    Array.from(document.getElementsByClassName(`object`)).forEach((element) => {
         intersectionObserver2.observe(element);
     });
 };

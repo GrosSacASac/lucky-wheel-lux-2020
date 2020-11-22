@@ -14,7 +14,7 @@ const start = function (eventEmitter) {
         
         if (lastPosition !== undefined) {
             const [previousLatitude, previousLongitude] = lastPosition;
-            distanceMoved += getDistance(latitude, longitude, previousLatitude, previousLongitude);;
+            distanceMoved += getDistance(latitude, longitude, previousLatitude, previousLongitude);
             if (distanceMoved >= minDistance) {
                 eventEmitter.emit(MOVE, {
                     distance: distanceMoved,
@@ -25,7 +25,7 @@ const start = function (eventEmitter) {
         }
         lastPosition = [latitude, longitude];
     }, function (error) {
-        eventEmitter.emit(DEBUG, error)
+        eventEmitter.emit(DEBUG, error);
     },{
         enableHighAccuracy,
         maximumAge,

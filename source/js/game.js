@@ -17,9 +17,9 @@ const start = function (eventEmitter) {
             return {
                 textContent: proposal,
                 value: String(index),
-            }
-        })
-    })
+            };
+        }),
+    });
     let currentFocus;
     let isInside = false;
     let imageIndex = 0;
@@ -46,7 +46,7 @@ const start = function (eventEmitter) {
                 currentFocus = element;
                 eventEmitter.emit(CHANGE_PLACE, currentFocus);
                 imageIndex += 1;
-                document.body.style.setProperty("--background", `URL(${backGrounds[imageIndex % backGrounds.length]})`);
+                document.body.style.setProperty(`--background`, `URL(${backGrounds[imageIndex % backGrounds.length]})`);
             } else {
                 currentFocus = undefined;
             }
@@ -56,12 +56,12 @@ const start = function (eventEmitter) {
     eventEmitter.on(MOVE, function () {
         if (currentFocus) {// can only open the door if in front of the door
             if (!isInside) {
-                eventEmitter.emit(GO_INSIDE, currentFocus.querySelector("img"))
-                document.body.classList.add(`scroll-lock`)
+                eventEmitter.emit(GO_INSIDE, currentFocus.querySelector(`img`));
+                document.body.classList.add(`scroll-lock`);
                 isInside = true;
             } else {
-                eventEmitter.emit(GO_OUTSIDE, currentFocus.querySelector("img"))
-                document.body.classList.remove(`scroll-lock`)
+                eventEmitter.emit(GO_OUTSIDE, currentFocus.querySelector(`img`));
+                document.body.classList.remove(`scroll-lock`);
                 isInside = false;
             }
         }

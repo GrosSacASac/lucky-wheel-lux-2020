@@ -20,8 +20,8 @@ const start = function (eventEmitter) {
     eventEmitter.on(DEBUG, function (data) {
         if (data.latitude) {
             const {
-                latitude, longitude
-            } = data
+                latitude, longitude,
+            } = data;
             d.feed(`debug`, `DEBUG: latitude ${latitude} longitude ${longitude}`);
         } else if (data.code) {
             d.feed(`debug`, `DEBUG: code ${data.code} message ${data.message}`);
