@@ -9,6 +9,7 @@ export {
 
     CHANGE_PLACE,
     GO_INSIDE,
+    GO_OUTSIDE,
  };
 
 
@@ -22,3 +23,4 @@ export {
 
  const CHANGE_PLACE = `CHANGE_PLACE`;
  const GO_INSIDE = `GO_INSIDE`;
+ const GO_OUTSIDE = `GO_OUTSIDE`;

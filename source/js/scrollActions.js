@@ -31,26 +31,18 @@ const start = function (eventEmitter) {
 
     const intersectionObserver2 = new IntersectionObserver((observedEntries) => {
         observedEntries.forEach(observedEntry => {
-            if (observedEntry.intersectionRatio >= 0.8) {
-                // observedEntry.target.animate(...approach);
-                // .finished.then(function () {
-                //     observedEntry.target.style.transform = 'rotate3d(0,1,0, 45deg)';
-                // })
-                console.log("is largely visible")
+            if (observedEntry.intersectionRatio >= 1) {
+                // console.log("is largely visible")
                 eventEmitter.emit(MOVE_VIRTUALLY, {
                     element: observedEntry.target,
                 })
             } else if (observedEntry.intersectionRatio <= 0.7){
-                console.log("not so visible")
-                // observedEntry.target.animate(approach[0], {
-                //     ...approach[1],
-                //     direction: "reverse"
-                // })
+                // console.log("not so visible")
 
             }
         })
     }, {
-        threshold: [0.8,0.7]
+        threshold: [1,0.7]
     });
 
     Array.from(document.getElementsByClassName("object")).forEach((element) => {

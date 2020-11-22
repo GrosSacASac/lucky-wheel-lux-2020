@@ -1,7 +1,7 @@
 export { start };
 import * as d from "./dependencies.js";
 import { badGuyId, a } from "./settings/scenarios.js";
-import { WIN, LOSE, TALK, PRISON, MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE } from "./eventNames.js";
+import { WIN, LOSE, TALK, PRISON, MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./eventNames.js";
 
 
 
@@ -20,6 +20,7 @@ const start = function (eventEmitter) {
         })
     })
     let currentFocus;
+    let isInside = false;
 
     eventEmitter.on(PRISON, function(id) {
         if (id === a.answer) {
@@ -44,7 +45,15 @@ const start = function (eventEmitter) {
 
     eventEmitter.on(MOVE, function () {
         if (currentFocus) {
-            eventEmitter.emit(GO_INSIDE, currentFocus.querySelector("img"))
+            if (!isInside) {
+                eventEmitter.emit(GO_INSIDE, currentFocus.querySelector("img"))
+                document.body.classList.add(`scroll-lock`)
+                isInside = true;
+            } else {
+                eventEmitter.emit(GO_OUTSIDE, currentFocus.querySelector("img"))
+                document.body.classList.remove(`scroll-lock`)
+                isInside = false;
+            }
         }
     });
 

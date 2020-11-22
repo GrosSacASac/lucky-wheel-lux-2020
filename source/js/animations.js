@@ -1,6 +1,6 @@
 export { start };
 import { approach, rotate } from "./settings/animations.js";
-import { CHANGE_PLACE, GO_INSIDE } from "./eventNames.js";
+import { CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./eventNames.js";
 
 
 
@@ -11,8 +11,14 @@ const start = function (eventEmitter) {
     });
 
     eventEmitter.on(GO_INSIDE, function(x) {
-        console.log(x)
         x.animate(...rotate)
+    });
+
+    eventEmitter.on(GO_OUTSIDE, function(x) {
+        x.animate(rotate[0], {
+            ...rotate[1],
+            "direction": "reverse"
+        })
     });
 
 };

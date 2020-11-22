@@ -6,6 +6,7 @@ import components used on this page here
 html {
     --background: URL("../images/1.JPG");
 }
+
 body {
     background-image: var(--background);
     background-size: auto 100vh;
@@ -14,9 +15,13 @@ body {
     background-attachment: fixed;
 }
 
+body.scroll-lock {
+    overflow: hidden;
+}
+
 .object {
-    height: 80vh;
-    margin: 4rem;
+    height: 70vh;
+    margin: 20vh;
     position: relative;
     z-index: 1;
     width: 20vw; /*todo remove*/
