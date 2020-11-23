@@ -13,12 +13,15 @@ const putScenarioInDom = (scenario) => {
                 text: tip,
             };
         }),
-        proposals: scenario.proposals.map((proposal, index) => {
+        proposals: [{
+            textContent: `CHOSE OPTION`,
+            value: `NaN`,
+        }, ...scenario.proposals.map((proposal, index) => {
             return {
                 textContent: proposal,
                 value: String(index),
             };
-        }),
+        })],
     });
 };
 
