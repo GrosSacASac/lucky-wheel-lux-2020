@@ -104,3 +104,4 @@ dist
 .tern-port
 todo.txt
 notes.txt
+built/bundle.es.min.js
