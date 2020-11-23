@@ -89,8 +89,6 @@ https://theluckywheel.techatjasmin.com/#1#faq
 
 ## How to build the game
 
-For convenience the build ouput is already included in git
-
 
 ### Set up
 
