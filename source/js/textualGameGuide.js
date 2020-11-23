@@ -1,15 +1,15 @@
-export { start };
+export { start, stop };
 import * as d from "./dependencies.js";
 import { WIN, LOSE, DEBUG, MOVE } from "./eventNames.js";
 
 
 const start = function (eventEmitter) {
-    eventEmitter.on(WIN, function (data) {
+    eventEmitter.on(WIN, function () {
         d.feed(`winLose`, `You WIN`);
 
     });
 
-    eventEmitter.on(LOSE, function (data) {
+    eventEmitter.on(LOSE, function () {
         d.feed(`winLose`, `You LOSE`);
 
     });
@@ -33,4 +33,10 @@ const start = function (eventEmitter) {
         }
 
     });
+};
+
+const stop = function () {
+    d.feed(`winLose`, ``);
+    d.feed(`helpText`, ``);
+    d.feed(`debug`, ``);
 };

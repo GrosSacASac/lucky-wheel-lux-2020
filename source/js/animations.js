@@ -3,7 +3,6 @@ import { approach, rotate } from "./settings/animations.js";
 import { CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./eventNames.js";
 
 
-
 const start = function (eventEmitter) {
     eventEmitter.on(CHANGE_PLACE, function(x) {
         x.animate(...approach);

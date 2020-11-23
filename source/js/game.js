@@ -1,32 +1,41 @@
-export { start };
+export { start, stop };
 import * as d from "./dependencies.js";
-import {randomPositiveInt} from "./dependencies.js";
+import { randomPositiveInt } from "./dependencies.js";
 import { scenarios } from "./settings/scenarios.js";
 import { backGrounds } from "./settings/images.js";
 import { MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./eventNames.js";
 
 
-
-const start = function (eventEmitter) {
-    const chosenScenario = scenarios[randomPositiveInt(scenarios.length)];
-
+const putScenarioInDom = (scenario) => {
     d.feed({
-        tips: chosenScenario.tips.map((tip) => {
+        tips: scenario.tips.map((tip) => {
             return {
                 text: tip,
             };
         }),
-        proposals: chosenScenario.proposals.map((proposal, index) => {
+        proposals: scenario.proposals.map((proposal, index) => {
             return {
                 textContent: proposal,
                 value: String(index),
             };
         }),
     });
+};
 
+const clearDom = () => {
+    d.feed({
+        tips: [],
+        proposals: [],
+    });
+};
+
+
+const start = function (eventEmitter) {
+    const chosenScenario = scenarios[randomPositiveInt(scenarios.length)];
     let currentFocus = undefined;
     let isInside = false;
     let imageIndex = 0;
+    putScenarioInDom(chosenScenario);
 
     eventEmitter.on(MOVE_VIRTUALLY, function ({element}) {
         if (!isInside) { // can only move if not inside the house
@@ -56,4 +65,8 @@ const start = function (eventEmitter) {
         }
     });
 
+};
+
+const stop = function () {
+    clearDom();
 };

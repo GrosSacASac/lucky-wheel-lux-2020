@@ -1,10 +1,13 @@
-export { start };
+export { start, stop };
 import { MOVE_VIRTUALLY } from "./eventNames.js";
 
 
+const almostVisible = 0.95;
+const fullyVisible = 1;
+
 const start = function (eventEmitter) {
-    const threshold = [1, 0.95];
-    const intersectionObserver2 = new IntersectionObserver((observedEntries) => {
+    const threshold = [fullyVisible, almostVisible];
+    const intersectionObserver = new IntersectionObserver((observedEntries) => {
         observedEntries.forEach(observedEntry => {
             if (observedEntry.intersectionRatio >= threshold[0]) {
                 eventEmitter.emit(MOVE_VIRTUALLY, {
@@ -14,7 +17,6 @@ const start = function (eventEmitter) {
                 eventEmitter.emit(MOVE_VIRTUALLY, {
                     element: undefined, // not so visible
                 });
-
             }
         });
     }, {
@@ -22,6 +24,13 @@ const start = function (eventEmitter) {
     });
 
     Array.from(document.getElementsByClassName(`object`)).forEach((element) => {
-        intersectionObserver2.observe(element);
+        intersectionObserver.observe(element);
+    });
+    return intersectionObserver;
+};
+
+const stop = function (intersectionObserver) {
+    Array.from(document.getElementsByClassName(`object`)).forEach((element) => {
+        intersectionObserver.unobserve(element);
     });
 };
