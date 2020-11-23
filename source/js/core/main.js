@@ -1,6 +1,8 @@
 import { Core, useDefaultLogging } from "../../../node_modules/@eroc/core/dist/core.es.js";
 
 import * as d from "./dependencies.js";
+import { WIN, MOVE } from "./eventNames.js";
+import { restartDelay } from "../settings/restart.js";
 
 // outputs
 import * as textualGameGuide from "../textualGameGuide.js";
@@ -20,26 +22,33 @@ useDefaultLogging(core);
 
 
 (async () => {
-    await core.start(textualGameGuide);
+    let textId = await core.start(textualGameGuide);
+    await core.start(animations);
     await core.start(playerActions);
     await core.start(geolocationActions);
-    await core.start(game);
-    await core.start(animations);
-    d.start({
-        initialFeed: {
-            title: `Hello World`,
-            superParagraph: `Super Paragraph text`,
-        },
-    });
-    
+    let gameId = await core.start(game);
+    d.start();
     await core.start(scrollActions);
 
+    // on win restart the game after 5 seconds
+    core.on(WIN, function () {
+        setTimeout(async function () {
+            console.log(textId, gameId)
+            core.stop(textId);
+            core.stop(gameId);
+            textId = await core.start(textualGameGuide);
+            gameId = await core.start(game);
+        }, restartDelay);
+    });
 
-    // testing without moving out of the chair
-    // setInterval(function () {
-    //     core.moduleEmit(`MOVE`, {
-    //         distance: 30,
-    //         accuracy: 5,
-    //     });
-    // }, 8000);
+    if (location.hostname === `localhost`) {
+        // testing without moving out of the chair
+        const moveInterval = 8000;
+        setInterval(function () {
+            core.moduleEmit(MOVE, {
+                distance: 30,
+                accuracy: 5,
+            });
+        }, moveInterval);
+    }
 })();

@@ -13,7 +13,7 @@ const start = function (eventEmitter) {
             if (observedEntry.intersectionRatio >= threshold[0]) {
                 mainElementFocus = observedEntry.target; // largely visible
             } else if (observedEntry.intersectionRatio <= threshold[1]) {
-                ;// not so visible
+                // not so visible
             }
         });
         eventEmitter.emit(MOVE_VIRTUALLY, {
