@@ -1,7 +1,7 @@
 export { start, stop };
 import * as d from "./core/dependencies.js";
 import { randomPositiveInt } from "./core/dependencies.js";
-import { MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./core/eventNames.js";
+import { MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE, PRISON, WIN, LOSE } from "./core/eventNames.js";
 import { scenarios } from "./settings/scenarios.js";
 import { backGrounds } from "./settings/images.js";
 
@@ -62,6 +62,14 @@ const start = function (eventEmitter) {
                 document.body.classList.remove(`scroll-lock`);
                 isInside = false;
             }
+        }
+    });
+
+    eventEmitter.on(PRISON, function(id) {
+        if (id === chosenScenario.answer) {
+            eventEmitter.emit(WIN);
+        } else {
+            eventEmitter.emit(LOSE);
         }
     });
 
