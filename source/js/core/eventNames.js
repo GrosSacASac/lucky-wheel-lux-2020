@@ -1,8 +1,7 @@
 export {
     WIN,
     LOSE,
-    TALK,
-    PRISON,
+    SUBMIT_ANSWER,
     MOVE,
     MOVE_VIRTUALLY,
     DEBUG,
@@ -13,13 +12,14 @@ export {
  };
 
 
+ const DEBUG = `DEBUG`;
+
  const WIN = `WIN`;
  const LOSE = `LOSE`;
- const TALK = `TALK`;
- const PRISON = `PRISON`;
+ const SUBMIT_ANSWER = `SUBMIT_ANSWER`;
+ 
  const MOVE = `MOVE`;
  const MOVE_VIRTUALLY = `MOVE_VIRTUALLY`;
- const DEBUG = `DEBUG`;
 
  const CHANGE_PLACE = `CHANGE_PLACE`;
  const GO_INSIDE = `GO_INSIDE`;
