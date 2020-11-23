@@ -8,16 +8,16 @@ const fullyVisible = 1;
 const start = function (eventEmitter) {
     const threshold = [fullyVisible, almostVisible];
     const intersectionObserver = new IntersectionObserver((observedEntries) => {
+        let mainElementFocus = undefined;
         observedEntries.forEach(observedEntry => {
             if (observedEntry.intersectionRatio >= threshold[0]) {
-                eventEmitter.emit(MOVE_VIRTUALLY, {
-                    element: observedEntry.target, // largely visible
-                });
+                mainElementFocus = observedEntry.target; // largely visible
             } else if (observedEntry.intersectionRatio <= threshold[1]) {
-                eventEmitter.emit(MOVE_VIRTUALLY, {
-                    element: undefined, // not so visible
-                });
+                ;// not so visible
             }
+        });
+        eventEmitter.emit(MOVE_VIRTUALLY, {
+            element: mainElementFocus, // largely visible
         });
     }, {
         threshold,
