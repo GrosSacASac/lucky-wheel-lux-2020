@@ -1,5 +1,5 @@
 export { start, stop };
-import { MOVE_VIRTUALLY } from "./eventNames.js";
+import { MOVE_VIRTUALLY } from "./core/eventNames.js";
 
 
 const almostVisible = 0.95;

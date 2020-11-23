@@ -1,6 +1,6 @@
 export { start };
+import { CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./core/eventNames.js";
 import { approach, rotate } from "./settings/animations.js";
-import { CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./eventNames.js";
 
 
 const start = function (eventEmitter) {

@@ -1,6 +1,6 @@
 export { start, stop };
-import * as d from "./dependencies.js";
-import { WIN, LOSE, DEBUG, MOVE } from "./eventNames.js";
+import * as d from "./core/dependencies.js";
+import { WIN, LOSE, DEBUG, MOVE } from "./core/eventNames.js";
 
 
 const start = function (eventEmitter) {

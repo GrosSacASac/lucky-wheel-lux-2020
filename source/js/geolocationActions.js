@@ -1,7 +1,7 @@
 export { start, stop };
-import { MOVE, DEBUG } from "./eventNames.js";
-import { minDistance, enableHighAccuracy, maximumAge } from "./settings/geolocation.js";
 import { getDistance } from "../../node_modules/globus-sac/globus.js";
+import { MOVE, DEBUG } from "./core/eventNames.js";
+import { minDistance, enableHighAccuracy, maximumAge } from "./settings/geolocation.js";
 
 
 const start = function (eventEmitter) {

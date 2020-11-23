@@ -1,6 +1,6 @@
 export { start };
-import * as d from "./dependencies.js";
-import { PRISON } from "./eventNames.js";
+import * as d from "./core/dependencies.js";
+import { PRISON } from "./core/eventNames.js";
 
 
 const start = function (eventEmitter) {

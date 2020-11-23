@@ -1,9 +1,9 @@
 export { start, stop };
-import * as d from "./dependencies.js";
-import { randomPositiveInt } from "./dependencies.js";
+import * as d from "./core/dependencies.js";
+import { randomPositiveInt } from "./core/dependencies.js";
+import { MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./core/eventNames.js";
 import { scenarios } from "./settings/scenarios.js";
 import { backGrounds } from "./settings/images.js";
-import { MOVE_VIRTUALLY, MOVE, CHANGE_PLACE, GO_INSIDE, GO_OUTSIDE } from "./eventNames.js";
 
 
 const putScenarioInDom = (scenario) => {

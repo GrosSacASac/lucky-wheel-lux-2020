@@ -1,15 +1,18 @@
-import { Core, useDefaultLogging } from "../../node_modules/@eroc/core/dist/core.es.js";
+import { Core, useDefaultLogging } from "../../../node_modules/@eroc/core/dist/core.es.js";
 
 import * as d from "./dependencies.js";
 
-import * as textualGameGuide from "./textualGameGuide.js";
-import * as animations from "./animations.js";
+// outputs
+import * as textualGameGuide from "../textualGameGuide.js";
+import * as animations from "../animations.js";
 
-import * as playerActions from "./playerActions.js";
-import * as scrollActions from "./scrollActions.js";
-import * as geolocationActions from "./geolocationActions.js";
+// inputs
+import * as playerActions from "../playerActions.js";
+import * as scrollActions from "../scrollActions.js";
+import * as geolocationActions from "../geolocationActions.js";
 
-import * as game from "./game.js";
+// game logic
+import * as game from "../game.js";
 
 
 const core = new Core();
@@ -38,5 +41,5 @@ useDefaultLogging(core);
     //         distance: 30,
     //         accuracy: 5,
     //     });
-    // }, 5000);
+    // }, 8000);
 })();
