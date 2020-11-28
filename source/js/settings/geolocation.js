@@ -4,6 +4,6 @@ export {
     maximumAge,
 };
 
-const minDistance = 30; // m
+const minDistance = 15; // m
 const enableHighAccuracy = true;
 const maximumAge = 2000;
